@@ -1,4 +1,4 @@
-[JLoggr](http://jloggr.com/) - Simple Javascript Logging Component
+JLoggr - Simple Javascript Logging Component
 ==================================================
 
 A simple javascript logger, designed to be an improvement to using alert() or logging to the browser console.
