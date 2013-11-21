@@ -22,8 +22,8 @@ Just include jsloggr.js and jsloggr.css on your page
 
     <html>
       <head>
-        <script type="text/javascript" src="/PATH/TO/jslogger.js"></script>
-        <link type="text/css" rel="Stylesheet" href="/PATH/TO/jslogger.css" />
+        <script type="text/javascript" src="/PATH/TO/jsloggr.js"></script>
+        <link type="text/css" rel="Stylesheet" href="/PATH/TO/jsloggr.css" />
         ...
       </head>
     
