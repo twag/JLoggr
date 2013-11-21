@@ -1,0 +1,439 @@
+/*
+  JLoggr - JavaScript Logging Utility
+
+
+*/
+#JLoggr
+{
+	z-index: 1000001;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	_position: absolute;
+	/*font: 11px/1.3 Consolas, 'Lucida Console', Monaco, monospace;*/
+	_border: 2px solid #BBB;
+	border: solid 1px #ccc;
+}
+
+	#JLoggr .JLoggr-main
+	{
+		font: 11px/1.3 Consolas, 'Lucida Console', Monaco, monospace;
+	}
+
+
+
+	#JLoggr.bbTopLeft
+	{
+		top: 0;
+		left: 0;
+		_top: expression(eval(document.documentElement.scrollTop+8));
+		_left: expression(eval(document.documentElement.scrollLeft+8));
+	}
+
+	#JLoggr.bbTopRight
+	{
+		top: 0;
+		right: 0;
+	}
+
+* html .bbTopRight
+{
+	right: auto;
+	top: expression(eval(document.documentElement.scrollTop+8));
+	left: expression(eval(document.documentElement.scrollLeft+document.documentElement.clientWidth-document.getElementById('JLoggr').offsetWidth-8));
+}
+
+#JLoggr.bbBottomLeft
+{
+	bottom: 0;
+	left: 0;
+}
+
+* html .bbBottomLeft
+{
+	bottom: auto;
+	top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-document.getElementById('JLoggr').offsetHeight-8));
+	left: expression(eval(document.documentElement.scrollLeft+8));
+}
+
+#JLoggr.bbBottomRight
+{
+	bottom: 0;
+	right: 0;
+}
+
+* html .bbBottomRight
+{
+	bottom: auto;
+	right: auto;
+	top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-document.getElementById('JLoggr').offsetHeight-8));
+	left: expression(eval(document.documentElement.scrollLeft+document.documentElement.clientWidth-document.getElementById('JLoggr').offsetWidth-8));
+}
+
+#JLoggr.bbSmall
+{
+	width: 300px;
+	_width: 272px;
+}
+
+	#JLoggr.bbSmall .JLoggr-header
+	{
+		_width: 272px;
+	}
+
+		#JLoggr.bbSmall .JLoggr-header div.JLoggr-left, #JLoggr.bbSmall .JLoggr-footer div.JLoggr-left
+		{
+			width: 150px;
+		}
+
+	#JLoggr.bbSmall .JLoggr-main
+	{
+		_width: 272px;
+	}
+
+		#JLoggr.bbSmall .JLoggr-main div
+		{
+			height: 200px;
+		}
+
+			#JLoggr.bbSmall .JLoggr-main div.JLoggr-mainBody
+			{
+				width: 272px;
+			}
+
+	#JLoggr.bbSmall .JLoggr-footer
+	{
+		_width: 272px;
+	}
+
+#JLoggr.bbLarge
+{
+	width: 500px;
+	_width: 472px;
+}
+
+	#JLoggr.bbLarge .JLoggr-header
+	{
+		_width: 472px;
+	}
+
+		#JLoggr.bbLarge .JLoggr-header div.JLoggr-left, #JLoggr.bbLarge .JLoggr-footer div.JLoggr-left
+		{
+			width: 350px;
+		}
+
+	#JLoggr.bbLarge .JLoggr-main
+	{
+		_width: 472px;
+	}
+
+		#JLoggr.bbLarge .JLoggr-main div
+		{
+			height: 500px;
+		}
+
+			#JLoggr.bbLarge .JLoggr-main div.JLoggr-mainBody
+			{
+				width: 472px;
+			}
+
+	#JLoggr.bbLarge .JLoggr-footer
+	{
+		_width: 472px;
+	}
+
+#JLoggr .JLoggr-header span
+{
+	position: relative;
+	width: 16px;
+	height: 16px;
+	margin: 0 4px;
+	float: left;
+	/*background-image: url(blackbird_icons.png);*/
+	background-repeat: no-repeat;
+}
+
+	#JLoggr .JLoggr-header span.error
+	{
+		background-position: 0px 0px;
+	}
+
+	#JLoggr .JLoggr-header span.errorDisabled
+	{
+		background-position: -16px 0px;
+	}
+
+	#JLoggr .JLoggr-header span.warn
+	{
+		background-position: 0px -16px;
+	}
+
+	#JLoggr .JLoggr-header span.warnDisabled
+	{
+		background-position: -16px -16px;
+	}
+
+	#JLoggr .JLoggr-header span.info
+	{
+		background-position: 0px -32px;
+	}
+
+	#JLoggr .JLoggr-header span.infoDisabled
+	{
+		background-position: -16px -32px;
+	}
+
+	#JLoggr .JLoggr-header span.debug
+	{
+		background-position: 0px -48px;
+	}
+
+	#JLoggr .JLoggr-header span.debugDisabled
+	{
+		background-position: -16px -48px;
+	}
+
+	#JLoggr .JLoggr-header span.profile
+	{
+		background-position: 0px -64px;
+	}
+
+	#JLoggr .JLoggr-header span.profileDisabled
+	{
+		background-position: -16px -64px;
+	}
+
+	#JLoggr .JLoggr-header span.close
+	{
+		background-position: 0px -80px;
+	}
+
+	#JLoggr .JLoggr-header span.clear
+	{
+		background-position: -16px -80px;
+	}
+
+	#JLoggr .JLoggr-header span.small
+	{
+		background-position: 0px -96px;
+	}
+
+	#JLoggr .JLoggr-header span.large
+	{
+		background-position: -16px -96px;
+	}
+
+/*#JLoggr .JLoggr-header > div, #JLoggr .JLoggr-main > div, #JLoggr .JLoggr-footer > div { background:url(blackbird_panel.png); background-repeat:no-repeat; }*/
+#JLoggr .JLoggr-header > div, #JLoggr .JLoggr-main > div, #JLoggr .JLoggr-footer > div
+{
+	background-color: white;
+	background-repeat: no-repeat;
+}
+
+#JLoggr .JLoggr-header div
+{
+	float: left;
+	_background-color: #000;
+}
+
+	#JLoggr .JLoggr-header div.JLoggr-left
+	{
+		background-position: top left;
+		height: 40px;
+		_height: 16px;
+	}
+
+#JLoggr .JLoggr-header .JLoggr-left div.filters
+{
+	margin-left: -4px;
+	padding: 16px 0 0 19px;
+	float: left;
+	_padding: 6px 8px;
+}
+
+#JLoggr .JLoggr-header div.JLoggr-right
+{
+	background-position: top right;
+	height: 40px;
+	width: 150px;
+	_width: 122px;
+	_height: 16px;
+}
+
+#JLoggr .JLoggr-header .JLoggr-right div.controls
+{
+	padding: 16px 24px 0 0;
+	float: right;
+	_padding: 6px 8px;
+}
+
+#JLoggr .JLoggr-header .JLoggr-right .controls span
+{
+	margin: 0;
+}
+
+	#JLoggr .JLoggr-header .JLoggr-right .controls span.clear
+	{
+		margin-right: 8px;
+	}
+
+#JLoggr .JLoggr-main div
+{
+	float: left;
+}
+
+	#JLoggr .JLoggr-main div.JLoggr-left
+	{
+		background-position: 0 -30px;
+		width: 11px;
+		_width: 0;
+	}
+
+	#JLoggr .JLoggr-main div.JLoggr-mainBody
+	{
+		background-position: 40% -40px;
+		_background-color: #000;
+		_filter: alpha(opacity='93');
+	}
+
+#JLoggr .JLoggr-main .JLoggr-mainBody ol
+{
+	line-height: 1.45;
+	height: 100%;
+	overflow: auto;
+	width: 100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+	#JLoggr .JLoggr-main .JLoggr-mainBody ol li
+	{
+		padding: 1px 4px 1px 1px;
+		border-bottom: 1px solid #ccc;
+		color: #CCC;
+		margin: 2px 2px;
+		_text-indent: -2px;
+	}
+
+		#JLoggr .JLoggr-main .JLoggr-mainBody ol li span
+		{
+			/*background: url(blackbird_icons.png) no-repeat 0 0;*/
+			border: 1px solid #333;
+			height: 16px;
+			width: 16px;
+			display: block;
+			float: left;
+			margin: -2px 0 1px -25px;
+			_display: inline;
+		}
+
+
+		#JLoggr .JLoggr-main .JLoggr-mainBody ol li.debug
+		{
+			color: green;
+		}
+
+		#JLoggr .JLoggr-main .JLoggr-mainBody ol li.info
+		{
+			color: black;
+		}
+
+		#JLoggr .JLoggr-main .JLoggr-mainBody ol li.warn
+		{
+			color: darkorange;
+		}
+
+
+		#JLoggr .JLoggr-main .JLoggr-mainBody ol li.error
+		{
+			color: red;
+			font-weight: 900;
+		}
+
+		#JLoggr .JLoggr-main .JLoggr-mainBody ol li.trace
+		{
+			color: darkred;
+		}
+
+		#JLoggr .JLoggr-main .JLoggr-mainBody ol li.error span
+		{
+			background-position: 0 0;
+		}
+
+		#JLoggr .JLoggr-main .JLoggr-mainBody ol li.warn span
+		{
+			background-position: 0 -16px;
+		}
+
+		#JLoggr .JLoggr-main .JLoggr-mainBody ol li.info span
+		{
+			background-position: 0 -32px;
+		}
+
+		#JLoggr .JLoggr-main .JLoggr-mainBody ol li.debug span
+		{
+			background-position: 0 -48px;
+		}
+
+		#JLoggr .JLoggr-main .JLoggr-mainBody ol li.profile span
+		{
+			background-position: 0 -64px;
+		}
+
+		#JLoggr .JLoggr-main .JLoggr-mainBody ol li.profile
+		{
+			color: #DDD;
+			font-style: italic;
+		}
+
+#JLoggr .errorHidden li.error, #JLoggr .warnHidden li.warn, #JLoggr .infoHidden li.info, #JLoggr .debugHidden li.debug, #JLoggr .profileHidden li.profile
+{
+	display: none;
+}
+
+/*#JLoggr .JLoggr-main div.JLoggr-right { background:url(blackbird_panel.png) no-repeat 100% -30px; width:17px; _width:0; }*/
+#JLoggr .JLoggr-main div.JLoggr-right
+{
+	background-color: white;
+	no-repeat 100% -30px;
+	width: 17px;
+	_width: 0;
+}
+
+#JLoggr .JLoggr-footer div
+{
+	height: 50px;
+	float: left;
+	_background-color: #000;
+	_height: 30px;
+}
+
+	#JLoggr .JLoggr-footer div.JLoggr-left
+	{
+		background-position: bottom left;
+		_width: 100% !important;
+	}
+
+		#JLoggr .JLoggr-footer div.JLoggr-left label
+		{
+			display: block;
+			color: #BBB;
+			margin: 8px 0 0 16px;
+			position: relative;
+			font-family: Arial,sans-serif;
+			_margin: 4px 0 0 8px;
+		}
+
+			#JLoggr .JLoggr-footer div.JLoggr-left label input
+			{
+				padding: 0;
+				vertical-align: middle;
+			}
+
+	#JLoggr .JLoggr-footer div.JLoggr-right
+	{
+		background-position: bottom right;
+		width: 150px;
+		_width: 0;
+	}
